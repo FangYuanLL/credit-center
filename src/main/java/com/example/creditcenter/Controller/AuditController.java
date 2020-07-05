@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @Controller
 @RequestMapping(value = "/Audit")
 public class AuditController {
@@ -14,7 +16,11 @@ public class AuditController {
     @Autowired
     private AuditServiceImpl auditServiceImpl;
 
-    //@ResponseBody
+    @ResponseBody
+    @RequestMapping(value = "/select")
+    public Object SelectById(){
+        return auditServiceImpl.selectAuditById(1);
+    }
 
 
 }
