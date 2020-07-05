@@ -44,7 +44,7 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <version>8.0</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -92,7 +92,11 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <!--spring aop需要导入的包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
 
         <!-- 阿里系的Druid依赖包 -->
         <dependency>
