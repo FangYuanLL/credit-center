@@ -1,11 +1,11 @@
 package com.example.creditcenter.Dao;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-
 import java.lang.reflect.Method;
 
 /**
@@ -20,6 +20,8 @@ import java.lang.reflect.Method;
 @Aspect
 public class DataSourceAspect {
 
+    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(DataSourceAspect.class);
+
     @Pointcut("@annotation(ChoseDataSource)")
     public void setDatasource(){
     }
@@ -31,6 +33,23 @@ public class DataSourceAspect {
         ChoseDataSource annotation = method.getAnnotation(ChoseDataSource.class);
         String value = annotation.value();
         DbContextHolder.setDataSource(value);
-        System.out.println(value);
+        log.error(value);
+        //System.out.println("enter before");
+    }
+
+    /**
+     *自定义注解的切面范围after在注解之后但是是在
+     * Audit selectAuditById(Integer id);方法之前执行的
+     *
+     */
+    @After("setDatasource()")
+    public void after(){
+        //System.out.println("clear after");
+        //DbContextHolder.clearDataSource();
+    }
+
+    @Around("setDatasource()")
+    public void around(){
+
     }
 }

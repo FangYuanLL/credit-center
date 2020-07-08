@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AuditMapper {
-    //Audit selectAuditById(Integer id);
-    @ChoseDataSource("master")
+
+    @ChoseDataSource("read")
     Audit selectAuditById(Integer id);
 }

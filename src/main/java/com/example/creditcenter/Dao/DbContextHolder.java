@@ -1,5 +1,8 @@
 package com.example.creditcenter.Dao;
 
+import com.example.creditcenter.Controller.AuditController;
+import org.apache.log4j.Logger;
+
 /**
  * @param
  * @param
@@ -10,19 +13,25 @@ package com.example.creditcenter.Dao;
 */
 
 public class DbContextHolder {
+    private static Logger log = Logger.getLogger(AuditController.class);
 
-    public static final String devDataSource = "dev";
+    public static final String readDataSource = "read";
 
-    public static final String masterDataSource = "master";
+    public static final String writeDataSource = "write";
 
     private static ThreadLocal<String> ds = new ThreadLocal<>();
 
     public static void setDataSource(String dataSource){
+        log.error(dataSource);
         ds.set(dataSource);
     }
 
     public static String getDataSource(){
         return ds.get();
+    }
+
+    public static void clearDataSource(){
+        ds.remove();
     }
 
 }
