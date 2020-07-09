@@ -1,4 +1,7 @@
 package com.example.creditcenter.Model;
+
+import com.example.creditcenter.Dao.ChoseDataSource;
+
 /*
  * 审核表
  */
@@ -25,9 +28,11 @@ public class Audit {
         this.userid = userid;
     }
 
+    @ChoseDataSource("dev")
     public String getResult() {
         return result;
     }
+
 
     public void setResult(String result) {
         this.result = result;

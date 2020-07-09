@@ -1,5 +1,6 @@
 package com.example.creditcenter.Controller;
 
+import com.example.creditcenter.Dao.DbContextHolder;
 import com.example.creditcenter.Service.ServiceIMPL.AuditServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,8 @@ public class AuditController {
     @ResponseBody
     @RequestMapping(value = "/select")
     public Object SelectById(){
-        return auditServiceImpl.selectAuditById(1);
+        auditServiceImpl.selectAuditById(1);
+        return null;
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.creditcenter.Service.ServiceIMPL;
 
 import com.example.creditcenter.Dao.AuditMapper;
+import com.example.creditcenter.Dao.ChoseDataSource;
 import com.example.creditcenter.Model.Audit;
 import com.example.creditcenter.Service.AuditService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ public class AuditServiceImpl implements AuditService {
     AuditMapper auditMapper;
 
     @Override
+    @ChoseDataSource("dev")
     public Audit selectAuditById(Integer id) {
         return auditMapper.selectAuditById(id);
     }
