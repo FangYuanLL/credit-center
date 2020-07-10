@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="com.example.creditcenter.Dao.AuditMapper">
+    <resultMap id="AuditResultMap" type="com.example.creditcenter.Model.Audit">
+        <id property="id" column="id" />
+        <result property="userid" column="userid" />
+        <result property="result" column="result" />
+        <result property="time" column="time" />
+    </resultMap>
+
+    <select id="selectAuditById" resultMap="AuditResultMap" parameterType="java.lang.Integer">
+        select * from audit where id = #{id,jdbcType = INTEGER}
+    </select>
+</mapper>
