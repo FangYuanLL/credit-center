@@ -8,7 +8,8 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
 @MapperScan(basePackages = "com.example.creditcenter.Dao")
-@ImportResource("classpath:DataSource.xml")
+@ImportResource("classpath:applicationContext.xml")
+/*@EnableAspectJAutoProxy*/
 public class CreditCenterApplication {
 
     public static void main(String[] args) {
