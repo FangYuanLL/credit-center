@@ -7,6 +7,7 @@ import java.lang.annotation.Inherited;
 
 public interface AuditService {
 
-
     Audit selectAuditById(Integer id);
+
+    int insertAudit(Audit audit);
 }

@@ -22,4 +22,9 @@ public class AuditServiceImpl implements AuditService {
     public Audit selectAuditById(Integer id) {
         return auditInfoDao.selectAuditById();
     }
+
+    @Override
+    public int insertAudit(Audit audit) {
+        return auditInfoDao.insertAudit(audit);
+    }
 }

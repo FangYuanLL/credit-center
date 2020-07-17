@@ -11,4 +11,9 @@
     <select id="selectAuditById" resultMap="AuditResultMap" parameterType="java.lang.Integer">
         select * from audit where id = #{id,jdbcType = INTEGER}
     </select>
+
+    <insert id="insertAudit" parameterType="com.example.creditcenter.Model.Audit">
+        insert into audit(id,userid,result,time) value(#{id,jdbcType=INTEGER},#{userid,jdbcType=INTEGER},
+        #{result,jdbcType=VARCHAR},#{time,jdbcType=VARCHAR})
+    </insert>
 </mapper>

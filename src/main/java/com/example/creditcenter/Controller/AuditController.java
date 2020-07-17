@@ -2,6 +2,7 @@ package com.example.creditcenter.Controller;
 
 import com.example.creditcenter.Dao.AuditInfoDao;
 import com.example.creditcenter.Dao.DbContextHolder;
+import com.example.creditcenter.Model.Audit;
 import com.example.creditcenter.Service.ServiceIMPL.AuditServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,14 @@ public class AuditController {
     @ResponseBody
     @RequestMapping(value = "/select")
     public Object SelectById(){
-        Log.trace("asjkasm;as");//只有log.error打印出来了
-        return auditServiceImpl.selectAuditById(1);
+        //Log.trace("asjkasm;as");//只有log.error打印出来了
+        //return auditServiceImpl.selectAuditById(1);
+        Audit audit = new Audit();
+        audit.setId(2);
+        audit.setUserid(3);
+        audit.setResult("98");
+        audit.setTime(""+System.currentTimeMillis());
+        return auditServiceImpl.insertAudit(audit);
     }
 
 

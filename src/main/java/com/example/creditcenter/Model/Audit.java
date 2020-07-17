@@ -12,6 +12,23 @@ public class Audit {
     String result;
     String time;
 
+    public Audit(){
+
+    }
+
+    public Audit( int userid, String result, String time) {
+        this.userid = userid;
+        this.result = result;
+        this.time = time;
+    }
+
+    public Audit(int id, int userid, String result, String time) {
+        this.id = id;
+        this.userid = userid;
+        this.result = result;
+        this.time = time;
+    }
+
     public int getId() {
         return id;
     }
@@ -31,6 +48,7 @@ public class Audit {
     @ChoseDataSource("dev")
     public String getResult() {
         return result;
+
     }
 
 
