@@ -1,5 +1,7 @@
 package com.example.creditcenter.Dao;
 
+import java.util.HashMap;
+
 /**
  * @param
  * @param
@@ -15,14 +17,14 @@ public class DbContextHolder {
 
     public static final String masterDataSource = "master";
 
-    private static ThreadLocal<String> ds = new ThreadLocal<>();
+    private static HashMap<String,String> ds = new HashMap<>();
 
     public static void setDataSource(String dataSource){
-        ds.set(dataSource);
+        ds.put("dataSource",dataSource);
     }
 
     public static String getDataSource(){
-        return ds.get();
+        return ds.get("dataSource");
     }
 
 }

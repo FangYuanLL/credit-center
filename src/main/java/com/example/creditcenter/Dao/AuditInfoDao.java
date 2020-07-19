@@ -6,6 +6,8 @@ import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
+
 @Repository
 public class AuditInfoDao extends BaseDao {
 
@@ -24,7 +26,10 @@ public class AuditInfoDao extends BaseDao {
     @ChoseDataSource("read")
     public int insertAudit(Audit audit){
         SqlSession sqlSession = getSqlSession();
-        int flag = sqlSession.insert("com.example.creditcenter.Dao.AuditMapper.insertAudit",audit);
+        int flag = -10;
+        System.out.println("thread:+++++");
+        flag = sqlSession.insert("com.example.creditcenter.Dao.AuditMapper.insertAudit",audit);
+        System.out.println("thread:+++++:"+flag);
         return flag;
     }
 }

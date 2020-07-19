@@ -6,6 +6,8 @@
         <result property="userid" column="userid" />
         <result property="result" column="result" />
         <result property="time" column="time" />
+        <result property="serialnumber" column="serialnumber" />
+        <result property="platform" column="platform" />
     </resultMap>
 
     <select id="selectAuditById" resultMap="AuditResultMap" parameterType="java.lang.Integer">
@@ -13,7 +15,8 @@
     </select>
 
     <insert id="insertAudit" parameterType="com.example.creditcenter.Model.Audit">
-        insert into audit(id,userid,result,time) value(#{id,jdbcType=INTEGER},#{userid,jdbcType=INTEGER},
-        #{result,jdbcType=VARCHAR},#{time,jdbcType=VARCHAR})
+        insert into audit(id,userid,result,time,serialnumber,platform) value(#{id,jdbcType=INTEGER},#{userid,jdbcType=INTEGER},
+        #{result,jdbcType=VARCHAR},#{time,jdbcType=VARCHAR},#{serialnumber,jdbcType=VARCHAR},
+        #{platform,jdbcType=INTEGER})
     </insert>
 </mapper>
