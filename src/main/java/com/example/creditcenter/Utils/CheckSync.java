@@ -10,7 +10,7 @@ public class CheckSync {
 
     public static boolean  CheckDuplicate(Audit audit){
         boolean flag = true;//默认为true不会插入数据
-        if (synMap.containsKey("CheckDuplicate")==false){
+        if (!synMap.containsKey("CheckDuplicate")){
             synMap.put("CheckDuplicate",audit);
             flag = false;
         }else{

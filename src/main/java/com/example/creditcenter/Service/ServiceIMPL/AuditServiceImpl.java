@@ -20,7 +20,8 @@ public class AuditServiceImpl implements AuditService {
 
     @Override
     public Audit selectAuditById(Integer id) {
-        return auditInfoDao.selectAuditById();
+        System.out.println(auditInfoDao.selectAuditById(id).getTime());
+        return auditInfoDao.selectAuditById(id);
     }
 
     @Override
@@ -30,10 +31,12 @@ public class AuditServiceImpl implements AuditService {
             boolean flag = CheckSync.CheckDuplicate(audit);
             if (flag == false){
                 System.out.println("11111");
+                if (audit == null){
+                    System.out.println("null");
+                }
                 ModeCode = auditInfoDao.insertAudit(audit);
                 System.out.println("thread:"+ModeCode);
             }
-
         }
         return ModeCode;
     }

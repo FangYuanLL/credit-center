@@ -4,13 +4,18 @@ import com.example.creditcenter.Dao.AuditInfoDao;
 import com.example.creditcenter.Dao.DbContextHolder;
 import com.example.creditcenter.Model.Audit;
 import com.example.creditcenter.Service.ServiceIMPL.AuditServiceImpl;
+import com.example.creditcenter.Utils.Result;
+import com.example.creditcenter.Utils.RetResponse;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Queue;
 
 
 @Controller
@@ -26,30 +31,10 @@ public class AuditController {
     @ResponseBody
     @RequestMapping(value = "/select")
     public Object SelectById(){
-        //Log.trace("asjkasm;as");//只有log.error打印出来了
-        //return auditServiceImpl.selectAuditById(1);
-        //Audit audit = new Audit();
-        //audit.setId(2);
-        //audit.setUserid(3);
-        //audit.setResult("98");
-        //audit.setTime(""+System.currentTimeMillis());
-        //audit.setSerialnumber("18827415919");
-        //audit.setPlatform(21);
-        SafeThread thread1 = new SafeThread();
-        SafeThread thread2 = new SafeThread();
-        SafeThread thread3 = new SafeThread();
-        SafeThread thread4 = new SafeThread();
-        SafeThread thread5 = new SafeThread();
-        SafeThread thread6 = new SafeThread();
-        SafeThread thread7 = new SafeThread();
-        thread1.start();
-        thread2.start();
-        thread3.start();
-        thread4.start();
-        thread5.start();
-        thread6.start();
-        thread7.start();
-        return 1;
+        Audit audit = auditServiceImpl.selectAuditById(55);
+        Result<Audit> auditResult = RetResponse.pack(200,"success",audit);
+        System.out.println(auditResult.getCode());
+        return auditResult;
     }
 
     class SafeThread extends Thread{

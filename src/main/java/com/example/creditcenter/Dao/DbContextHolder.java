@@ -17,14 +17,19 @@ public class DbContextHolder {
 
     public static final String masterDataSource = "master";
 
-    private static HashMap<String,String> ds = new HashMap<>();
+    private static ThreadLocal<String> ds = new ThreadLocal<>();
 
     public static void setDataSource(String dataSource){
-        ds.put("dataSource",dataSource);
+        System.out.println("setDataSource:"+dataSource);
+        ds.set(dataSource);
     }
 
     public static String getDataSource(){
-        return ds.get("dataSource");
+        return ds.get();
     }
 
+    public static void clearDataSource(){
+        ds.remove();
+        System.out.println("clearDataSource:"+ds.get());
+    }
 }
