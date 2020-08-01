@@ -10,4 +10,6 @@ public interface AuditService {
     Audit selectAuditById(Integer id);
 
     int insertAudit(Audit audit);
+
+    int updateAudit(Audit audit);
 }

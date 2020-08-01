@@ -19,4 +19,14 @@
         #{result,jdbcType=VARCHAR},#{time,jdbcType=VARCHAR},#{serialnumber,jdbcType=VARCHAR},
         #{platform,jdbcType=INTEGER})
     </insert>
+
+    <update id="updateAudit" parameterType="com.example.creditcenter.Model.Audit">
+        update audit
+        set
+        userid = #{userid,jdbcType=INTEGER},
+        result = #{result,jdbcType=VARCHAR},
+        serialnumber = #{serialnumber,jdbcType=VARCHAR},
+        platform = #{platform,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

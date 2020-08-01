@@ -30,6 +30,15 @@
         <property name="mapperLocations" value="classpath:mapper/*Mapper.xml"/>
     </bean>
 
+    <!--配置两个事务管理器-->
+    <bean id="writeTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="writeDataSource"/>
+    </bean>
+
+    <bean id="readTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="readDataSource"/>
+    </bean>
+
     <!--<aop:aspectj-autoproxy proxy-target-class="true"/>-->
 
 </beans>

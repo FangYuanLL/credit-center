@@ -37,6 +37,14 @@ public class AuditController {
         return auditResult;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/update")
+    public Object UpdateAudit(){
+        Audit audit = new Audit(56,5,"0","11","11",11);
+        int flag = auditServiceImpl.updateAudit(audit);
+        return flag;
+    }
+
     class SafeThread extends Thread{
 
         private Date date = new Date(System.currentTimeMillis());
